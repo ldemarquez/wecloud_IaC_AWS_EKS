@@ -11,13 +11,17 @@ NAMESPACE_MONITORING="monitoring"
 echo "Update kubeconfig"
 aws eks update-kubeconfig --region $REGION  --name $CLUSTER_NAME
 echo " "
-echo "Cluster_Info & ist default namespaces"
+echo "Cluster_Info & default namespaces"
 kubectl cluster-info
 echo " "
 kubectl get namespaces
 echo " "
 echo "Create new namespaces $NAMESPACE_REACT_APP $NAMESPACE_LB_NGINX_APP & $NAMESPACE_MONITORING"
-echo $
+echo " "
+kubectl create namespace $NAMESPACE_REACT_APP 
+kubectl create namespace $NAMESPACE_LB_NGINX_APP
+kubectl create namespace $NAMESPACE_MONITORING
+kubectl get namespaces
 
 
 
